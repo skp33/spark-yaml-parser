@@ -1,0 +1,35 @@
+spark:
+  master: spark://master:7077
+
+  blacklist:
+    application:
+      maxFailedExecutorsPerNode: 2
+      maxFailedTasksPerExecutor: 2
+
+  driver.memory: 5g
+
+  dynamicAllocation:
+    cachedExecutorIdleTimeout: infinity
+    enabled: false
+    executorIdleTimeout: 60s
+
+  eventLog:
+    dir: hdfs://namenode:8021/directory
+    enabled: true
+
+  executor:
+    extraJavaOptions: -XX:+PrintGCDetails -Dkey=value -Dnumbers="one two three"
+
+  serializer: org.apache.spark.serializer.KryoSerializer
+
+  shuffle:
+    compress: true
+    file.buffer: 32k
+    io.maxRetries: 3
+    memoryFraction: 0.2
+
+  sql.warehouse.dir: file:///C:/Spark/SparkBundles/spark-2.2.0-bin-hadoop2.7/spark-warehouse
+
+  storage:
+    memoryFraction: 0.6
+    unrollFraction: 0.2
